@@ -31,6 +31,8 @@ CASKS=(
     obsidian
     google-chrome
     mysqlworkbench
+    raycast
+    visual-studio-code
 )
 FORMULAE=(
     bat
