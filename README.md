@@ -11,12 +11,28 @@
 
 ---
 
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Xcode Command Line Tools](#xcode-command-line-tools)
+- [Configuration](#configuration)
+- [How Modules Work](#how-modules-work)
+- [Homebrew Packages Managed](#homebrew-packages-managed)
+- [Yabai Setup](#yabai-setup-tiling-window-manager)
+- [Dotfiles and Neovim Configuration](#dotfiles-and-neovim-configuration)
+- [Zsh and Tmux Plugin Management](#zsh-and-tmux-plugin-management)
+- [Developer Guide](#developer-guide)
+- [Tart](#tart-vms-on-apple-silicon)
+- [Troubleshooting & FAQ](#troubleshooting--faq)
+
+---
+
 ## Quick Start
 
 1. **Clone the repository:**
 
    ```bash
-   git clone <your-repo-url> && cd mac-setup
+   git clone https://github.com/tomerlevy1/mac-setup.git && cd mac-setup
    ```
 
 2. **(Optional) Copy and edit your config:**
@@ -95,13 +111,13 @@
 [yabai](https://github.com/koekeishiya/yabai) is a powerful tiling window manager for macOS. It is installed automatically, but **manual steps are required** for full functionality:
 
 - **Accessibility API:**
-  - Grant yabai access in System Preferences > Security & Privacy > Accessibility.
+  - Grant yabai access in System Settings > Security & Privacy > Accessibility.
 - **Screen Recording:**
-  - Grant yabai permission if you want window animations (System Preferences > Security & Privacy > Screen Recording).
+  - Grant yabai permission if you want window animations (System Settings > Security & Privacy > Screen Recording).
 - **System Integrity Protection (SIP):**
   - Some advanced features require partially disabling SIP. See the [yabai wiki](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection) for details. This is optional but recommended for power users.
 - **Code Signing:**
-  - If building from source or using advanced features, you may need to code sign the binary. See the [yabai documentation](<https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)>) for instructions.
+  - If building from source or using advanced features, you may need to code sign the binary. See the [yabai documentation](https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)) for instructions.
 - **System Settings:**
   - Ensure "Displays have separate Spaces" is enabled in Mission Control (System Settings > Desktop & Dock > Mission Control).
   - Disable "Automatically rearrange Spaces based on most recent use" for reliable space management.
@@ -139,11 +155,13 @@ For more, see the [official yabai documentation](https://github.com/koekeishiya/
   - Make your script idempotent.
   - If your step requires user input, move it to `setup-interactive.sh`.
 - **Testing:**
-  - (TODO) Use BATS in `tests/` for automated testing.
+  - Automated testing with BATS is planned for future implementation.
   - Test modules individually by running `./setup.sh <module>`.
-  - Manual testing using tart (see below).
+  - Manual testing using tart (see Tart section below).
 
-### Tart (VMs on Apple Silicon)
+---
+
+## Tart (VMs on Apple Silicon)
 
 - [Tart](https://github.com/cirruslabs/tart) is a virtualization toolset to build, run, and manage macOS and Linux VMs on Apple Silicon. It uses Apple's Virtualization.Framework for near-native performance and is ideal for CI and automation workflows.
 - **Manual test:**
@@ -170,10 +188,4 @@ For more, see the [official yabai documentation](https://github.com/koekeishiya/
   - A: The script will skip it and log a success message.
 - **Q: How do I add a new tool or step?**
   - A: Add a new module script in `modules/` and follow the developer guide above.
-
----
-
-## License
-
-MIT. See [LICENSE](../LICENSE) for details.
 
