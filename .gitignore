@@ -1,0 +1,10 @@
+# Ignore user-specific config
+config.sh
+
+# Ignore test outputs and logs
+*.log
+
+# Ignore OS and editor files
+.DS_Store
+*.swp
+*.swo 

@@ -1,0 +1,16 @@
+# Example configuration for mac-setup
+# Copy this file to config.sh and edit as needed. This file is ignored by git.
+
+# Your Git user name
+# GIT_NAME="Tomer Levy"
+
+# Your Git email
+# GIT_EMAIL="tomer.levy@teads.com"
+
+# Example: Set your preferred default shell (optional, used by interactive script)
+# DEFAULT_SHELL="/opt/homebrew/bin/zsh"
+
+# Example: Set a custom Homebrew prefix (if not default)
+# HOMEBREW_PREFIX="/opt/homebrew"
+
+# Add any other environment variables you want available to all modules below 
