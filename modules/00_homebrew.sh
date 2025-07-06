@@ -21,6 +21,7 @@ TAPS=(
     FelixKratz/formulae
     espanso/espanso
     cirruslabs/cli
+    hashicorp/tap
 )
 CASKS=(
     font-jetbrains-mono-nerd-font
@@ -46,6 +47,7 @@ FORMULAE=(
     gh
     git
     git-delta
+    hashicorp/tap/terraform
     jq
     lazygit
     less
