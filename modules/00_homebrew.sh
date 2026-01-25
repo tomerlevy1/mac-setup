@@ -22,8 +22,10 @@ TAPS=(
     espanso/espanso
     cirruslabs/cli
     hashicorp/tap
+    nikitabobko/tap
 )
 CASKS=(
+    aerospace
     font-jetbrains-mono-nerd-font
     font-0xproto-nerd-font
     maccy
