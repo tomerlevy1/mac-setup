@@ -45,6 +45,7 @@ FORMULAE=(
     eza
     fd
     fnm
+    fswatch
     fzf
     gh
     git

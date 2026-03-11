@@ -55,6 +55,11 @@ else
   log_warn "GitHub CLI (gh) is not installed. Please run the unattended setup first."
 fi
 
+# Enable verbose ipconfig so sketchybar can read WiFi SSID (otherwise macOS redacts it)
+log_info "Enabling verbose ipconfig for WiFi SSID access (requires sudo)..."
+sudo ipconfig setverbose 1
+log_success "Verbose ipconfig enabled."
+
 echo
 log_info "Interactive setup complete. If you changed your shell, please restart your terminal."
-# Add more interactive steps here as needed (e.g., SSH key generation) 
+# Add more interactive steps here as needed (e.g., SSH key generation)
