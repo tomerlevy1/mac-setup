@@ -31,6 +31,7 @@ CASKS=(
     maccy
     karabiner-elements
     ghostty
+    hammerspoon
     obsidian
     google-chrome
     mysqlworkbench
