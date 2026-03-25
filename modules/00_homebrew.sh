@@ -17,24 +17,28 @@ fi
 # Required taps, casks, and formulae
 TAPS=(
     homebrew/cask-fonts
-    koekeishiya/formulae
     FelixKratz/formulae
-    espanso/espanso
     cirruslabs/cli
     hashicorp/tap
     nikitabobko/tap
+    ngrok/ngrok
 )
 CASKS=(
     aerospace
+    claude-code
     font-jetbrains-mono-nerd-font
     font-0xproto-nerd-font
-    maccy
-    karabiner-elements
     ghostty
-    hammerspoon
-    obsidian
     google-chrome
+    hammerspoon
+    karabiner-elements
+    keycastr
+    maccy
     mysqlworkbench
+    ngrok
+    notunes
+    obsidian
+    orbstack
     raycast
     visual-studio-code
 )
@@ -42,7 +46,7 @@ FORMULAE=(
     bat
     cirruslabs/cli/tart
     commitizen
-    espanso
+    diff-so-fancy
     eza
     fd
     fnm
@@ -51,22 +55,22 @@ FORMULAE=(
     gh
     git
     git-delta
+    gitleaks
     hashicorp/tap/terraform
     jq
     lazygit
     less
     neovim
+    python@3.13
     ripgrep
     sketchybar
-    skhd
     starship
     stow
     tldr
     tmux
     tree
-    yabai
     yq
-    z
+    zoxide
     zsh
     zsh-autosuggestions
     zsh-history-substring-search
