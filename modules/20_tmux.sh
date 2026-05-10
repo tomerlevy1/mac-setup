@@ -33,6 +33,3 @@ else
   log_success "TPM is already installed."
 fi
 
-# Optionally, add configuration steps here (e.g., copy a default .tmux.conf)
-# log_info "Configuring tmux..."
-# cp "$SCRIPT_DIR/configs/tmux.conf" "$HOME/.tmux.conf" 

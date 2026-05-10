@@ -29,6 +29,7 @@ CASKS=(
     font-jetbrains-mono-nerd-font
     font-0xproto-nerd-font
     ghostty
+    gifski
     google-chrome
     hammerspoon
     karabiner-elements
@@ -60,7 +61,7 @@ FORMULAE=(
     jq
     lazygit
     less
-    neovim
+    mise
     python@3.13
     ripgrep
     sketchybar
