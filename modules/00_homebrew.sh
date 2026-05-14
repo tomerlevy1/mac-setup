@@ -31,7 +31,6 @@ CASKS=(
     ghostty
     gifski
     google-chrome
-    hammerspoon
     karabiner-elements
     keycastr
     maccy
@@ -42,6 +41,69 @@ CASKS=(
     orbstack
     raycast
     visual-studio-code
+)
+
+# EXTRA_* arrays: installed on previous machine but not part of the core setup.
+# NOT installed by default. Reference list — uncomment / `brew install` as needed
+# on the new Mac if a tool is missing.
+EXTRA_FORMULAE=(
+    ansible
+    binwalk
+    btop
+    chocolate-doom
+    cloudflared
+    cmake
+    exif
+    ffmpeg
+    gcc@11
+    gcc@12
+    gemini-cli
+    gifsicle
+    git-filter-repo
+    gnu-sed
+    go
+    gobuster
+    goenv
+    grpcui
+    grpcurl
+    httpie
+    hydra
+    imagemagick
+    iwe-org/iwe/iwe
+    jenv
+    kubernetes-cli
+    librsvg
+    luarocks
+    maven
+    nmap
+    pmamico/java/jssl
+    pngcheck
+    pnpm
+    pre-commit
+    presenterm
+    redis
+    rust-analyzer
+    sst/tap/opencode
+    swiftformat
+    testdisk
+    tfenv
+    thefuck
+    tidy-html5
+    zola
+)
+EXTRA_CASKS=(
+    android-platform-tools
+    aws-vpn-client
+    font-fira-code
+    font-hack-nerd-font
+    font-monaspace
+    font-sf-mono-nerd-font
+    font-sf-pro
+    gimp
+    kap
+    pingplace
+    sf-symbols
+    swiftformat-for-xcode
 )
 FORMULAE=(
     bat

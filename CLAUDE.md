@@ -6,6 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a modular, idempotent macOS development environment setup system using shell scripts. It replaces Ansible playbooks with simple, extensible bash scripts split into unattended and interactive phases.
 
+## Repository Visibility
+
+**This repo is PUBLIC** (`github.com/tomerlevy1/mac-setup`). Treat every change as
+world-readable forever. Before committing or pushing:
+
+- Never commit secrets, tokens, API keys, SSH keys, passwords, or credentials. Anything sensitive
+  belongs in `config.sh` (gitignored) or an external secret store.
+- Never commit personal/work email addresses, internal hostnames, internal URLs, employer-internal
+  tooling names, client names, or other PII beyond what's already public in this repo.
+- Never reference private repos by URL in a way that exposes private project names or paths
+  (the existing `tomerlevy1/.dotfiles`, `tomerlevy1/nvim`, `tomerlevy1/nvim12` references are
+  already public via this repo — fine to keep, but don't add new ones casually).
+- Logs in `log/` may contain machine-specific paths or env values — they're gitignored, keep it
+  that way.
+- Before staging, scan the diff for the above. If anything sensitive shows up, stop and flag it
+  to the user rather than committing.
+
 ## Commands
 
 ```bash

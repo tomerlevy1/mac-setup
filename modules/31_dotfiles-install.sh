@@ -4,15 +4,17 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$SCRIPT_DIR/lib/utils.sh"
 
-if [ -x "$HOME/.dotfiles/install.sh" ]; then
-    log_info "Running .dotfiles/install.sh..."
-    (cd "$HOME/.dotfiles" && ./install.sh)
+DOTFILES_DIR="$HOME/dev-personal/.dotfiles"
+
+if [ -x "$DOTFILES_DIR/install.sh" ]; then
+    log_info "Running $DOTFILES_DIR/install.sh..."
+    (cd "$DOTFILES_DIR" && ./install.sh)
     if [ $? -eq 0 ]; then
-        log_success ".dotfiles/install.sh executed successfully."
+        log_success "dotfiles install.sh executed successfully."
     else
-        log_error ".dotfiles/install.sh failed."
+        log_error "dotfiles install.sh failed."
         exit 1
     fi
 else
-    log_info ".dotfiles/install.sh not found or not executable; skipping."
-fi 
+    log_info "$DOTFILES_DIR/install.sh not found or not executable; skipping."
+fi
