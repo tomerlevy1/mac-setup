@@ -2,6 +2,23 @@
 
 Lightspeed setup for a brand-new MacBook (Apple Silicon).
 
+## TL;DR
+
+On the new Mac, open Terminal and run:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomerlevy1/mac-setup/main/bootstrap.sh)"
+```
+
+Then:
+
+```bash
+cd ~/dev/mac-setup && ./setup-interactive.sh
+```
+
+Restart the terminal. Done — rest of this doc covers permissions, sign-ins,
+and sanity checks.
+
 ## 0. Apple onboarding
 
 Finish Apple's first-boot flow: Apple ID sign-in, Wi-Fi, Touch ID, time zone.
