@@ -8,7 +8,7 @@
 # Steps:
 #   1. Install Xcode Command Line Tools (provides git, compilers).
 #   2. Install Homebrew (under /opt/homebrew on Apple Silicon).
-#   3. Clone mac-setup repo to ~/dev/mac-setup.
+#   3. Clone mac-setup repo to ~/dev-personal/mac-setup.
 #   4. Run ./setup.sh (unattended modules).
 #   5. Print next-step instructions for interactive setup.
 
@@ -21,7 +21,7 @@ warn()    { printf "${YELLOW}[BOOTSTRAP]${NC} %s\n" "$1"; }
 err()     { printf "${RED}[BOOTSTRAP]${NC} %s\n" "$1" >&2; }
 
 REPO_URL="https://github.com/tomerlevy1/mac-setup.git"
-REPO_DIR="$HOME/dev/mac-setup"
+REPO_DIR="$HOME/dev-personal/mac-setup"
 
 # --- 1. Xcode CLT ---
 if xcode-select -p &>/dev/null; then
@@ -56,7 +56,7 @@ if [ -d "$REPO_DIR/.git" ]; then
     ok "mac-setup repo already present at $REPO_DIR."
 else
     info "Cloning mac-setup to $REPO_DIR..."
-    mkdir -p "$HOME/dev"
+    mkdir -p "$HOME/dev-personal"
     git clone "$REPO_URL" "$REPO_DIR"
     ok "mac-setup cloned."
 fi

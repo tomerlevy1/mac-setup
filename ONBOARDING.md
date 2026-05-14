@@ -13,7 +13,7 @@ On the new Mac, open Terminal and run:
 Then:
 
 ```bash
-cd ~/dev/mac-setup && ./setup-interactive.sh
+cd ~/dev-personal/mac-setup && ./setup-interactive.sh
 ```
 
 Restart the terminal. Done — rest of this doc covers permissions, sign-ins,
@@ -33,7 +33,7 @@ Open the preinstalled **Terminal** app and paste:
 ```
 
 This installs Xcode Command Line Tools, Homebrew, clones this repo to
-`~/dev/mac-setup`, and runs `./setup.sh` (all unattended modules).
+`~/dev-personal/mac-setup`, and runs `./setup.sh` (all unattended modules).
 
 Expect ~20–40 min depending on network. The Xcode CLT step shows a GUI
 installer — accept it and the bootstrap script waits for it to finish.
@@ -41,7 +41,7 @@ installer — accept it and the bootstrap script waits for it to finish.
 ## 2. Interactive setup
 
 ```bash
-cd ~/dev/mac-setup
+cd ~/dev-personal/mac-setup
 ./setup-interactive.sh
 ```
 
