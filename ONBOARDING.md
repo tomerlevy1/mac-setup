@@ -88,6 +88,47 @@ brew install <name>          # formula
 brew install --cask <name>   # cask
 ```
 
+## 6.5 Transfer from old Mac
+
+Files NOT covered by any sync / repo — copy manually before wiping old Mac.
+
+Easiest path: while both machines online, from **new Mac**:
+
+```bash
+# Replace OLD_MAC with the old Mac's hostname or IP (System Settings > Sharing)
+OLD=tolevy@OLD_MAC.local
+
+# Shell history
+scp "$OLD:~/.zsh_history" ~/.zsh_history
+
+# Non-GitHub SSH keys (webos_emul, OfficeTV_webos, etc.)
+scp -r "$OLD:~/.ssh/" ~/.ssh-old-backup/
+# Then manually merge wanted keys into ~/.ssh/ and set perms:
+#   chmod 700 ~/.ssh && chmod 600 ~/.ssh/id_* && chmod 644 ~/.ssh/*.pub
+
+# AWS / cloud credentials (if used)
+scp -r "$OLD:~/.aws" ~/.aws
+scp -r "$OLD:~/.config/gcloud" ~/.config/gcloud 2>/dev/null
+
+# Mise / fnm / language version files (if not in mise config)
+# (already managed by mise in dotfiles — skip unless customized)
+
+# Misc app data not in iCloud
+scp -r "$OLD:~/Library/Application Support/Code/User/snippets" \
+    "$HOME/Library/Application Support/Code/User/snippets" 2>/dev/null
+```
+
+Enable SSH access on old Mac first: **System Settings → General → Sharing →
+Remote Login ON**.
+
+Things that ARE synced (skip — will appear automatically):
+- Obsidian vault (git)
+- VS Code settings (Settings Sync)
+- Chrome bookmarks/history (Google sync)
+- Slack, Notion, Linear, etc. (cloud accounts)
+- iCloud Desktop/Documents/Photos
+- App Store apps (re-download)
+
 ## 7. Sanity checks
 
 ```bash
