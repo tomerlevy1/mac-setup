@@ -16,7 +16,6 @@ fi
 
 # Required taps, casks, and formulae
 TAPS=(
-    homebrew/cask-fonts
     FelixKratz/formulae
     cirruslabs/cli
     hashicorp/tap
@@ -29,18 +28,13 @@ CASKS=(
     font-jetbrains-mono-nerd-font
     font-0xproto-nerd-font
     ghostty
-    gifski
-    google-chrome
     karabiner-elements
     keycastr
     maccy
-    mysqlworkbench
     ngrok
     notunes
     obsidian
-    orbstack
     raycast
-    visual-studio-code
 )
 
 # EXTRA_* arrays: installed on previous machine but not part of the core setup.
@@ -157,18 +151,23 @@ for tap in "${TAPS[@]}"; do
 done
 
 # Install required casks
+# --adopt lets brew take over an existing /Applications/*.app installed outside
+# Homebrew (otherwise `brew install --cask` fails with "App already exists").
 for cask in "${CASKS[@]}"; do
     if brew list --cask | grep -q "^$cask$"; then
         log_success "Cask already installed: $cask"
     else
         log_info "Installing cask: $cask"
-        brew install --cask "$cask"
+        brew install --cask --adopt "$cask"
     fi
 done
 
 # Install required formulae
+# `brew list` prints unqualified names, so compare against the basename of
+# tap-qualified entries like `cirruslabs/cli/tart` -> `tart`.
 for formula in "${FORMULAE[@]}"; do
-    if brew list | grep -q "^$formula$"; then
+    short="${formula##*/}"
+    if brew list --formula | grep -q "^$short$"; then
         log_success "Formula already installed: $formula"
     else
         log_info "Installing formula: $formula"
@@ -179,13 +178,20 @@ done
 # --- Compare installed vs required ---
 
 # Get installed lists
-INSTALLED_FORMULAE=( $(brew list) )
+INSTALLED_FORMULAE=( $(brew list --formula) )
 INSTALLED_CASKS=( $(brew list --cask) )
+
+# Build basename-normalized required-formulae list (strip tap prefixes).
+REQUIRED_FORMULAE_SHORT=()
+for formula in "${FORMULAE[@]}"; do
+    REQUIRED_FORMULAE_SHORT+=("${formula##*/}")
+done
 
 # Find missing formulae
 MISSING_FORMULAE=()
 for formula in "${FORMULAE[@]}"; do
-    if ! printf '%s\n' "${INSTALLED_FORMULAE[@]}" | grep -qx "$formula"; then
+    short="${formula##*/}"
+    if ! printf '%s\n' "${INSTALLED_FORMULAE[@]}" | grep -qx "$short"; then
         MISSING_FORMULAE+=("$formula")
     fi
 done
@@ -193,7 +199,7 @@ done
 # Find extra formulae
 EXTRA_FORMULAE=()
 for formula in "${INSTALLED_FORMULAE[@]}"; do
-    if ! printf '%s\n' "${FORMULAE[@]}" | grep -qx "$formula"; then
+    if ! printf '%s\n' "${REQUIRED_FORMULAE_SHORT[@]}" | grep -qx "$formula"; then
         EXTRA_FORMULAE+=("$formula")
     fi
 done
