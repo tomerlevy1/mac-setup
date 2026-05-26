@@ -8,9 +8,11 @@
 # Steps:
 #   1. Install Xcode Command Line Tools (provides git, compilers).
 #   2. Install Homebrew (under /opt/homebrew on Apple Silicon).
-#   3. Clone mac-setup repo to ~/dev-personal/mac-setup.
-#   4. Run ./setup.sh (unattended modules).
-#   5. Print next-step instructions for interactive setup.
+#   3. Install gh CLI and run `gh auth login` (browser prompt) so private
+#      repo clones in setup.sh succeed.
+#   4. Clone mac-setup repo to ~/dev-personal/mac-setup.
+#   5. Run ./setup.sh (unattended modules).
+#   6. Print next-step instructions for interactive setup.
 
 set -euo pipefail
 
@@ -51,7 +53,27 @@ elif [ -x /usr/local/bin/brew ]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-# --- 3. Clone mac-setup ---
+# --- 3. gh CLI + auth (needed before any private repo clones below) ---
+if command -v gh &>/dev/null; then
+    ok "gh CLI already installed."
+else
+    info "Installing gh CLI via Homebrew..."
+    brew install gh
+    ok "gh CLI installed."
+fi
+
+if gh auth status &>/dev/null; then
+    ok "gh already authenticated."
+else
+    info "Running 'gh auth login' — follow the browser prompt to authorize."
+    gh auth login --git-protocol https --web --hostname github.com
+    ok "gh authenticated."
+fi
+
+# Configure git to use gh's credential helper so HTTPS clones of private repos work.
+gh auth setup-git
+
+# --- 4. Clone mac-setup ---
 if [ -d "$REPO_DIR/.git" ]; then
     ok "mac-setup repo already present at $REPO_DIR."
 else
@@ -61,12 +83,12 @@ else
     ok "mac-setup cloned."
 fi
 
-# --- 4. Run unattended setup ---
+# --- 5. Run unattended setup ---
 cd "$REPO_DIR"
 info "Running ./setup.sh..."
 ./setup.sh
 
-# --- 5. Next steps ---
+# --- 6. Next steps ---
 cat <<EOF
 
 ${GREEN}=== Bootstrap complete ===${NC}

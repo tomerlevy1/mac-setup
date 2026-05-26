@@ -32,11 +32,15 @@ Open the preinstalled **Terminal** app and paste:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomerlevy1/mac-setup/main/bootstrap.sh)"
 ```
 
-This installs Xcode Command Line Tools, Homebrew, clones this repo to
-`~/dev-personal/mac-setup`, and runs `./setup.sh` (all unattended modules).
+This installs Xcode Command Line Tools, Homebrew, the `gh` CLI (runs
+`gh auth login` — browser prompt), clones this repo to
+`~/dev-personal/mac-setup`, and runs `./setup.sh` (all remaining modules
+unattended).
 
-Expect ~20–40 min depending on network. The Xcode CLT step shows a GUI
-installer — accept it and the bootstrap script waits for it to finish.
+Expect ~20–40 min depending on network. Two interactive moments:
+1. Xcode CLT GUI installer — accept it; bootstrap waits for it to finish.
+2. `gh auth login` opens a browser to authorize GitHub — required so the
+   private repos cloned by setup.sh (`.dotfiles`, `nvim12`, vault) succeed.
 
 ## 2. Interactive setup
 
