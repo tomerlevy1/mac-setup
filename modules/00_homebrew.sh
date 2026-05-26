@@ -27,6 +27,7 @@ CASKS=(
     claude-code
     font-jetbrains-mono-nerd-font
     font-0xproto-nerd-font
+    font-sf-mono-nerd-font-ligaturized
     ghostty
     karabiner-elements
     keycastr
@@ -91,7 +92,6 @@ EXTRA_CASKS=(
     font-fira-code
     font-hack-nerd-font
     font-monaspace
-    font-sf-mono-nerd-font
     font-sf-pro
     gimp
     kap
@@ -126,6 +126,7 @@ FORMULAE=(
     tldr
     tmux
     tree
+    tree-sitter-cli
     yq
     zoxide
     zsh

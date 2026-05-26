@@ -46,6 +46,10 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Disable warning when changing file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
+# --- Menu bar ---
+# Auto-hide menu bar (matches Dock autohide for full-screen real estate)
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
 # --- Dock ---
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
