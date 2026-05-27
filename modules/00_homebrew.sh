@@ -127,6 +127,7 @@ FORMULAE=(
     tmux
     tree
     tree-sitter-cli
+    yarn
     yq
     zoxide
     zsh
