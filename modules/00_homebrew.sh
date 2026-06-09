@@ -25,6 +25,7 @@ TAPS=(
 CASKS=(
     aerospace
     claude-code
+    espanso
     font-jetbrains-mono-nerd-font
     font-0xproto-nerd-font
     font-sf-mono-nerd-font-ligaturized

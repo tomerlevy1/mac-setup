@@ -13,6 +13,7 @@ LOGIN_APPS=(
     "Karabiner-Elements:/Applications/Karabiner-Elements.app"
     "Maccy:/Applications/Maccy.app"
     "noTunes:/Applications/noTunes.app"
+    "Espanso:/Applications/Espanso.app"
 )
 
 add_login_item() {
@@ -51,3 +52,4 @@ for entry in "${LOGIN_APPS[@]}"; do
 done
 
 log_warn "First launch of Raycast/AeroSpace may require granting Accessibility permissions in System Settings."
+log_warn "Espanso requires Accessibility + Input Monitoring in System Settings, then: espanso service register && espanso start"
