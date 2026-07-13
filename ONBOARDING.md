@@ -62,7 +62,8 @@ Quit Ghostty/Terminal and reopen so the new shell + PATH load.
 
 Launch each once and grant prompts:
 
-- **Raycast** — set hotkey, sign in
+- **Raycast** — set hotkey, sign in; add script dir: Extensions → Script Commands →
+  Add Directories → `~/.raycast-scripts/scripts` (enables "URL Decode" etc.)
 - **Aerospace** — Accessibility permission
 - **Karabiner-Elements** — Input Monitoring + Accessibility
 - **Ghostty** — pin to dock
