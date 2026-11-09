@@ -9,20 +9,6 @@ if ! command_exists mise; then
     exit 1
 fi
 
-# Install neovim 0.12 and set as default
-if mise ls neovim 2>/dev/null | grep -q "0.12"; then
-    log_success "Neovim 0.12 already installed via mise."
-else
-    log_info "Installing Neovim 0.12 via mise..."
-    mise use --global neovim@0.12
-    if [ $? -eq 0 ]; then
-        log_success "Neovim 0.12 installed and set as default via mise."
-    else
-        log_error "Failed to install Neovim 0.12 via mise."
-        exit 1
-    fi
-fi
-
 # Install Rust toolchain (rustc, cargo) — required for rust-analyzer to function.
 # rust-analyzer binary is installed via Mason but cannot analyze code without rustc/stdlib.
 if mise ls rust 2>/dev/null | grep -q "."; then

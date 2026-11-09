@@ -24,7 +24,7 @@ TAPS=(
 )
 CASKS=(
     aerospace
-    claude-code
+    claude-code@latest
     dbeaver-community
     espanso
     font-jetbrains-mono-nerd-font
@@ -120,6 +120,7 @@ FORMULAE=(
     lazygit
     less
     mise
+    neovim
     python@3.13
     ripgrep
     sketchybar
